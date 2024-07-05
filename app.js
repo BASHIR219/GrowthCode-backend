@@ -20,7 +20,7 @@ const app=express();
 
 // Configure CORS to allow requests from your front-end origin
 const corsOptions = {
-    origin: '*',
+    origin: 'https://growthcodehub.netlify.app',
     credentials: true,
 };
 
