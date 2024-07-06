@@ -15,6 +15,7 @@ const corsOptions = {
     origin: 'https://growthcodehub.netlify.app',
     credentials: true,
     optionsSuccessStatus: 200,
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
 };
 
 app.use(cors(corsOptions));

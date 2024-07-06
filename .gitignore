@@ -29,6 +29,8 @@ build/
 # dotenv environment variables file
 .env
 
+config/config.env
+
 # IDEs and editors
 .idea/
 .vscode/
