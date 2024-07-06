@@ -199,7 +199,9 @@ const userLogin=async(req,res,next)=>{
 
     const options={
         expiresIn:Date.now()*24*60*60*1000,
-        SameSite: 'none'
+        httpOnly:true,
+        sameSite: 'none',
+        secure:true
     }
 
 
@@ -251,7 +253,7 @@ const forgotPassword=async(req,res,next)=>{
 
     // const resetPasswordUrl=`${req.protocol}://${req.get("host")}/api/v1/password/reset/${hashToken}`;
 
-    const redirectURL=`${req.protocol}://${req.get("host")}/resetPassword`
+    redirectURL=`https://growthcodehub.netlify.app/resetPassword`
 
     const transporter=nodemailer.createTransport({
         host:"smtp.gmail.com",

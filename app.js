@@ -12,6 +12,8 @@ import cookieParser from "cookie-parser";
 
 const app = express();
 
+app.set("trust proxy", 1);
+
 const corsOptions = {
     origin: ['https://growthcodehub.netlify.app','http://localhost:3000'],
     credentials: true,

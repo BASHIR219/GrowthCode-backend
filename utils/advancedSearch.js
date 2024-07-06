@@ -8,7 +8,7 @@ class AdvancedSearch{
     modifyQuery(){
         if("name" in this.query)
         {
-            this.query.name={$regex: `^(?i)${this.query.name}(?-i)`} // i option enables case sensitive search
+            this.query.name={$regex: `(?i)${this.query.name}(?-i)`} // i option enables case sensitive search
         }
         if("lte","gte" in this.query) // lte,gte leke aa raha hun price range se jo user choose karega, agar yeh user ne choose kara toh mein bhar lunga price wale key mein and lte, gte ko query se hata dunga 5000-10000 gte=5000,lte=10,000
         {
