@@ -198,7 +198,9 @@ const userLogin=async(req,res,next)=>{
     const token=jwt.sign({id:user._id},process.env.JWT_SECRET,{expiresIn:24*60*60});
 
     const options={
-        expiresIn:Date.now()*24*60*60*1000
+        expiresIn:Date.now()*24*60*60*1000,
+        SameSite: 'none',
+        secure:true
     }
 
 
