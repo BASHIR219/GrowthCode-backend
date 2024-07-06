@@ -17,7 +17,7 @@ const app = express();
 
 // Configure CORS to allow requests from your front-end origin
 const corsOptions = {
-    origin: 'https://growthcodehub.netlify.app',
+    origin: ['https://growthcodehub.netlify.app','http://localhost:3000'],
     credentials: true,
     optionsSuccessStatus: 200,
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
