@@ -83,7 +83,7 @@ const createUser=async(req,res,next)=>{
         },
     });
 
-    const redirectURL=`${req.protocol}://${req.get("host")}/verification`
+    const redirectURL=`https://growthcodehub.netlify.app/verification`
 
     // console.log(verificationLink);
 
@@ -253,7 +253,7 @@ const forgotPassword=async(req,res,next)=>{
 
     // const resetPasswordUrl=`${req.protocol}://${req.get("host")}/api/v1/password/reset/${hashToken}`;
 
-    const redirectURL=`${req.protocol}://${req.get("host")}/resetPassword`
+    redirectURL=`https://growthcodehub.netlify.app/resetPassword`
 
     const transporter=nodemailer.createTransport({
         host:"smtp.gmail.com",
