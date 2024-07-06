@@ -199,7 +199,8 @@ const userLogin=async(req,res,next)=>{
 
     const options={
         expiresIn:Date.now()*24*60*60*1000,
-        SameSite: 'none',
+        httpOnly:true,
+        sameSite: 'none',
         secure:true
     }
 
