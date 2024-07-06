@@ -15,6 +15,8 @@ dotenv.config({ path: path.resolve('config', 'config.env') });
 
 const app = express();
 
+app.set("trust proxy", 1);
+
 // Configure CORS to allow requests from your front-end origin
 const corsOptions = {
     origin: ['https://growthcodehub.netlify.app','http://localhost:3000'],
