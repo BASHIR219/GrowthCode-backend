@@ -1,4 +1,6 @@
 import express from "express";
+import dotenv from "dotenv";
+import path from "path";
 import product from "./routes/productRoute.js";
 import user from "./routes/userRoute.js";
 import order from "./routes/orderRoute.js";
@@ -7,6 +9,9 @@ import { error } from "./middlewares/error.js";
 import fileUpload from "express-fileupload";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+
+// Load environment variables from config.env
+dotenv.config({ path: path.resolve('config', 'config.env') });
 
 const app = express();
 
@@ -27,8 +32,8 @@ app.use((req, res, next) => {
 });
 
 process.on("uncaughtException", (err) => {
-    console.log(`Error is ${err}`);
-    console.log("Closing server due to uncaught exception");
+    console.error(`Uncaught Exception: ${err.message}`);
+    console.error(err.stack);
     process.exit(1);
 });
 
@@ -46,10 +51,14 @@ app.get('/', (req, res) => {
     res.send("Hello world|Bashir this side");
 });
 
-// Error handling
+// Enhanced Error handling middleware
 app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).send('Something broke!');
+    console.error('Error handler:', err);
+    res.status(500).json({
+        message: 'Something broke!',
+        error: err.message,
+        stack: process.env.NODE_ENV === 'development' ? err.stack : {} // Include stack trace in development mode
+    });
 });
 
 app.use(error);
