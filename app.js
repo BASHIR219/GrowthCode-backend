@@ -1,6 +1,4 @@
 import express from "express";
-import dotenv from "dotenv";
-import path from "path";
 import product from "./routes/productRoute.js";
 import user from "./routes/userRoute.js";
 import order from "./routes/orderRoute.js";
@@ -48,14 +46,14 @@ app.get('/', (req, res) => {
     res.send("Hello world|Bashir this side");
 });
 
-app.use((err, req, res, next) => {
-    console.error('Error handler:', err);
-    res.status(500).json({
-        message: 'Something broke!',
-        error: err.message,
-        stack: process.env.NODE_ENV === 'development' ? err.stack : {} 
-    });
-});
+// app.use((err, req, res, next) => {
+//     console.error('Error handler:', err);
+//     res.status(500).json({
+//         message: 'Something broke!',
+//         error: err.message,
+//         stack: process.env.NODE_ENV === 'development' ? err.stack : {} 
+//     });
+// });
 
 app.use(error);
 

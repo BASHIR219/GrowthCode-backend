@@ -21,7 +21,7 @@ const createUser=async(req,res,next)=>{
         }
         const isUpperCaseCharacter=/(?=.*[A-Z])/
         if(!isUpperCaseCharacter.test(password))
-        {   console.log("password bckend", password);
+        {   
             return next(new ErrorHandler(400,"Password should have atleast 1 uppercase character"))
         }
         const isLowerCaseCharacter=/(?=.*[a-z])/
